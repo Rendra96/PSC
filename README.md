@@ -5,3 +5,5 @@ populasi : kumpulan individu yang akan diproses
 
 (n-1)! : solusi/kromosom = populasi
 fungsi fitness : ambil nilai worst case
+
+Kode yang @Rendra96 kirim masih ada error
