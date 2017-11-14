@@ -36,8 +36,8 @@ public class Individual {
         }
     }
     
-    public int[] getKromoson() {
-        return this.kromosom;
+    public int getKromosom(int index) {
+        return this.kromosom[index];
     }
 
     public void setGen(int index, int value) {
@@ -53,6 +53,10 @@ public class Individual {
 
     public int getStep() {
         return 2*(this.persons-1)-1;
+    }
+    
+    public int size() {
+        return this.kromosom.length;
     }
     
     //nanti lagi aja, pusing, ngantuk

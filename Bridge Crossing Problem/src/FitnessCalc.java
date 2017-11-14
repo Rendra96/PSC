@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package simpleGA;
 
 /**
  *
- * @author ASUS
+ * @author Rendra
+ * @version 14 November 2017
+ * 
  */
 public class FitnessCalc {
     static byte[] solution = new byte[64];
@@ -39,7 +40,7 @@ public class FitnessCalc {
         int fitness = 0;
         // Loop through our individuals genes and compare them to our cadidates
         for (int i = 0; i < individual.size() && i < solution.length; i++) {
-            if (individual.getGene(i) == solution[i]) {
+            if (individual.getKromosom(i) == solution[i]) {
                 fitness++;
             }
         }
