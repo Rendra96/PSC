@@ -11,12 +11,18 @@
  * 
  */
 public class Population {
+    private int populationSize;
     private Individual[] population;
 
-    public Population(int populationSize, int persons, int[] timePersons) {
+    public Population(int populationSize, int individualSize, int persons, int[] timePersons) {
+        this.populationSize = populationSize;
         this.population = new Individual[populationSize];
-        for (int i = 0; i < populationSize; i++) {
-            this.population[i] = new Individual(persons, timePersons);
+        generatePopulation(individualSize, persons, timePersons);
+    }
+    
+    private void generatePopulation(int individualSize, int persons, int[] timePersons) {
+        for(int i = 0;i<this.populationSize;i++) {
+            this.population[i] = new Individual(individualSize, persons, timePersons);
         }
     }
     
@@ -24,8 +30,20 @@ public class Population {
         return population[index];
     }
 
-    //belum ngerti ini buat apa!?
-    public Individual getFittest() {
+    public String printPopulation() {
+        StringBuilder result = new StringBuilder();
+        String print = "";
+        for(int i = 0;i<this.populationSize-1;i++) {
+            print = this.population[i].printIndividu();
+            result.append("Individu ").append(i+1).append(" :\n").append(print).append("\n");
+            result.append("\n");
+        }
+        print = this.population[this.populationSize-1].printIndividu();
+        result.append("Individu ").append(this.populationSize).append(" :\n").append(print);
+        return result.toString();
+    }
+    
+    /*public Individual getFittest() {
         Individual fittest = population[0];
         // Loop through individuals to find fittest
         for (int i = 0; i < this.population.length; i++) {
@@ -34,5 +52,5 @@ public class Population {
             }
         }
         return fittest;
-    }
+    }*/
 }

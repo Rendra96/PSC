@@ -15,58 +15,39 @@ import java.util.Random;
  * 
  */
 public class Individual {
-    private int persons;
-    private int[] kromosom;
-    private int fitness;
-    private int[] timePersons;
     
-    public Individual(int persons, int[] timePersons) {
-        this.persons = persons;
-        this.kromosom = new int[persons];
-        this.timePersons = timePersons;
-        this.fitness = 0;
-        generateKromosom();
+    private Kromosom[] kromosom;
+    private int individuals;
+    
+    public Individual(int individuals, int persons, int[] personTimes) {
+        this.individuals = individuals;
+        this.kromosom = new Kromosom[individuals];
+        generateKromosom(persons, personTimes);
     }
     
-    public void generateKromosom() {
-        Random r = new Random();
-        for (int i = 0; i < getStep(); i++) {
-            int gen = r.nextInt(this.persons);
-            kromosom[i] = gen;
+    private void generateKromosom(int persons, int[] personTimes) {
+        for(int i = 0;i<this.individuals;i++) {
+            this.kromosom[i] = new Kromosom(persons, personTimes);
         }
     }
     
-    public int getKromosom(int index) {
-        return this.kromosom[index];
-    }
-
-    public void setGen(int index, int value) {
-        this.kromosom[index] = value;
-    }
-
-    public int getFitness() {
-        if (this.fitness == 0) {
-            this.fitness = FitnessCalc.getFitness(this);
-        }
-        return this.fitness;
-    }
-
-    public int getStep() {
-        return 2*(this.persons-1)-1;
+    public Kromosom[] getIndividuals() {
+        return this.kromosom;
     }
     
     public int size() {
         return this.kromosom.length;
     }
     
-    //nanti lagi aja, pusing, ngantuk
-    @Override
-    public String toString() {
-        Arrays.sort(this.kromosom);
-        String genString = "";
-        for (int i = 0; i < getStep(); i++) {
-            genString += 0;
+    public String printIndividu() {
+        StringBuilder result = new StringBuilder();
+        String print = "";
+        for(int i = 0;i<this.individuals-1;i++) {
+            print = this.kromosom[i].printKromosom();
+            result.append("Kromosom ").append(i+1).append(" : ").append(print).append("\n");
         }
-        return genString;
+        print = this.kromosom[this.individuals-1].printKromosom();
+        result.append("Kromosom ").append(this.individuals).append(" : ").append(print);
+        return result.toString();
     }
 }
