@@ -25,20 +25,33 @@ public class Tester {
             personTimes[i] = time;
         }
         
-//        Kromosom kromosom = new Kromosom(persons, personTimes);
-//        System.out.println(kromosom.printKromosom());
+        //Kromosom kromosom = new Kromosom(persons, personTimes);
+        //System.out.println(kromosom.printKromosom());
 
-        System.out.print("Banyaknya kromosom yang akan dibuat : ");
+        /*System.out.print("Banyaknya kromosom yang akan dibuat : ");
         int individu = sc.nextInt();
         
-        //Individual individual = new Individual(individu, persons, personTimes);
-//        System.out.println("Hasil print kromosom di dalam individu :");
-//        System.out.println(individual.printIndividu());
+        Individual individual = new Individual(individu, persons, personTimes);
+        System.out.println("Hasil print kromosom di dalam individu :");
+        System.out.println(individual.printIndividu());*/
 
-        System.out.print("Banyak individu yang akan dibuat : ");
+        /*System.out.print("Banyak individu yang akan dibuat : ");
         int populationSize = sc.nextInt();
         Population population = new Population(populationSize, individu, persons, personTimes);
         System.out.println("Hasil print population :");
-        System.out.println(population.printPopulation());
+        System.out.println(population.printPopulation());*/
+        
+        System.out.println();
+        Solution solution = new Solution();
+        System.out.println("Best solution : " + solution.totalTime(personTimes, persons));
+        System.out.println();
+        
+        //System.out.println("Kromosom best solution :");
+        //System.out.println(solution.printKromosom());
+        
+        /*int[] test = new int[10];
+        for(int i = 0;i<test.length;i++) {
+            System.out.println(test[i]);
+        }*/
     }
 }
