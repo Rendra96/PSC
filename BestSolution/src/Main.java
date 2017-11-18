@@ -30,5 +30,6 @@ public class Main {
         }
         Program p = new Program();
         System.out.println("The total time taken to cross the bridge is: " + p.TotalTime(band, n));
+        p.getArray();
     }
 }
